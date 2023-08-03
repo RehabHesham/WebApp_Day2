@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "AddForm";
+}
+
+<h1>AddForm</h1>
+
+<form action="/course/AddToDB" method="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="Name" aria-describedby="Name" name="Name">
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="Description" aria-describedby="Description" name="Description">
+    </div>
+    <div class="mb-3">
+        <label for="FullMark" class="form-label">Full Mark</label>
+        <input type="number" class="form-control" id="FullMark" name="FullMark">
+    </div>
+    <div class="mb-3">
+        <label for="TotalHours" class="form-label">Total Hours</label>
+        <input type="number" class="form-control" id="TotalHours" name="TotalHours">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

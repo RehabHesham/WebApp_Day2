@@ -1,0 +1,27 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "EditForm";
+}
+
+<h1>EditForm</h1>
+
+<form action="/course/EditInDB" method="post">
+    <input type="number" id="ID" name="ID" value="@Model.ID"  hidden/>
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="Name" aria-describedby="Name" name="Name" value="@Model.Name">
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="Description" aria-describedby="Description" name="Description" value="@Model.Description">
+    </div>
+    <div class="mb-3">
+        <label for="FullMark" class="form-label">Full Mark</label>
+        <input type="number" class="form-control" id="FullMark" name="FullMark" value="@Model.FullMark">
+    </div>
+    <div class="mb-3">
+        <label for="TotalHours" class="form-label">Total Hours</label>
+        <input type="number" class="form-control" id="TotalHours" name="TotalHours" value="@Model.TotalHours">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

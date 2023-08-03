@@ -1,0 +1,40 @@
+﻿<!--Loosly type view => not using model-->
+
+<!--Strong type-->
+@model List<Course>
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+
+<h1>Index</h1>
+
+<a href="/course/AddForm" class="btn btn-info">ADD</a>
+<hr />
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Total Hours</th>
+            <th scope="col">Controls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@(i++)</th>
+                <td>@item.Name</td>
+                <td>@item.TotalHours</td>
+                <td>
+                    <a href="/course/getbyid/@item.ID">Details</a>
+                    -
+                    <a href="/course/EditForm/@item.ID">Edit</a>
+                    -
+                    <a href="/course/Delete/@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
