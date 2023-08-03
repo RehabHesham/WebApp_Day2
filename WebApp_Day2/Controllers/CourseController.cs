@@ -10,6 +10,13 @@ namespace WebApp_Day2.Controllers
         {
             context = new ITIContext();
         }
+        /*
+         CRUD
+        C => Create (2 Action)
+        R => Read (1)
+        U => Update (2 Action)
+        D => Delete (1 Action)
+         */
         // Get All
         public IActionResult Index()
         {

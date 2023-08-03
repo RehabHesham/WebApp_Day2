@@ -13,5 +13,6 @@ namespace WebApp_Day2.Models
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<Department> Department { get; set; }
     }
 }

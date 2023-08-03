@@ -1,0 +1,35 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Index";
+    int index = 1;
+}
+
+<h1>Students Data</h1>
+<a href="/student/add" class="btn btn-warning">Add new student</a>
+<hr />
+<table class="table table-warning table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Controls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var std in Model){
+        <tr>
+            <th scope="row">@(index++)</th>
+            <td>@std.Name</td>
+            <td>@std.Department.Name</td>
+            <td>
+                    <a href="/student/GetById/@std.ID"><i class="fa-solid fa-circle-info"></i></a>
+                -
+                    <a href="/student/edit/@std.ID"><i class="fa-solid fa-pen-to-square"></i></a>
+                -
+                    <a href="/student/delete/@std.ID"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

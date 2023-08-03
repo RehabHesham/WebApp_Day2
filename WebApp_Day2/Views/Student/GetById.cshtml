@@ -1,0 +1,24 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "GetById";
+}
+
+
+
+<div class="card text-center">
+    <div class="card-header">
+        <h1>Student Data</h1>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Name: @Model.Name</h5>
+        <p class="card-text">Department: @Model.Department.Name</p>
+        <a href="/student" class="btn btn-primary">Back to list</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Address: @Model.Address</li>
+            <li class="list-group-item">Age: @Model.Age</li>
+            <li class="list-group-item">Email: @Model.Emai</li>
+        </ul>
+    </div>
+</div>

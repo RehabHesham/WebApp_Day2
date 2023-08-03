@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp_Day2.Models;
 
@@ -11,9 +12,11 @@ using WebApp_Day2.Models;
 namespace WebApp_Day2.Migrations
 {
     [DbContext(typeof(ITIContext))]
-    partial class ITIContextModelSnapshot : ModelSnapshot
+    [Migration("20230803063113_v3")]
+    partial class v3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasIndex("Ins_ID");
 
-                    b.ToTable("Courses", (string)null);
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Department", b =>
@@ -72,7 +75,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Instructor", b =>
@@ -103,7 +106,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Instructors", (string)null);
+                    b.ToTable("Instructors");
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Student", b =>
@@ -140,7 +143,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasIndex("Dept_ID");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.StudentCourse", b =>
@@ -158,7 +161,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasIndex("Crs_ID");
 
-                    b.ToTable("StudentCourses", (string)null);
+                    b.ToTable("StudentCourses");
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Course", b =>
