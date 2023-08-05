@@ -1,0 +1,39 @@
+﻿@model List<Instructor>
+@{
+    ViewData["Title"] = "Index";
+    int index = 1;
+}
+
+
+<h1>Instructors Data</h1>
+<a asp-controller="instructor" asp-action="add" class="btn btn-warning">Add new instructor</a>
+<hr />
+<table class="table table-warning table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Controls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ins in Model)
+        {
+            <tr>
+                <th scope="row">@(index++)</th>
+                <td>@ins.Name</td>
+                <td>@ins.Emai</td>
+                <td>@ins.Department.Name</td>
+                <td>
+                    <a asp-controller="instructor" asp-action="getbyid" asp-route-id="@ins.ID"><i class="fa-solid fa-circle-info"></i></a>
+                    -
+                    <a asp-controller="instructor" asp-action="edit" asp-route-id="@ins.ID"><i class="fa-solid fa-pen-to-square"></i></a>
+                    -
+                    <a asp-controller="instructor" asp-action="delete" asp-route-id="@ins.ID"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
