@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "ViewData";
+}
+
+<h1>ViewData</h1>
+
+Name: @ViewData["name"]
+<br />
+Age: @ViewData["agee"]
+<br />
+
+arr: 
+@foreach(var item in (int[])ViewData["arr"]){
+    <p>@item</p>
+}
+
+<br />
+<pre>
+// view Data problems
+* need explicit casting
+* magic string
+</pre>

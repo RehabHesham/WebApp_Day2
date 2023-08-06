@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "ViewBagAction";
+}
+
+<h1>ViewBagAction</h1>
+
+<p>Name : @ViewBag.name</p>
+<p>Age : @ViewBag.agee</p>
+
+<p>arr:</p>
+@foreach(var item in ViewBag.arr){
+    <p>@item</p>
+}
+
+<pre>
+    you can set data using view data and get it using view bag
+    Address : @ViewBag.address
+
+    or you can set data using view bag and get data using view data
+    location : @ViewData["location"]
+</pre>
+
+<pre>
+    // view bag 
+    * implicit casting 
+    
+
+
+    - magic string
+</pre>

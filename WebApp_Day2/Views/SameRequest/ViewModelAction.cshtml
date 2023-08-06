@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "ViewModelAction";
+}
+
+<h1>ViewModelAction</h1>
+
+@*@model Course
+<table>
+    <thead>
+        <tr>
+            <th>Course</th>
+            <td>@Model.Name</td>
+            <th>Grades</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th rowspan="3">Students</th>
+            <td>@Model.CourseStudents[0].Student.Name</td>
+            <td>@Model.CourseStudents[0].Grade</td>
+        </tr>
+        <tr>
+            <td>@Model.CourseStudents[1].Student.Name</td>
+            <td>@Model.CourseStudents[1].Grade</td>
+        </tr>
+        <tr>
+            <td>@Model.CourseStudents[2].Student.Name</td>
+            <td>@Model.CourseStudents[2].Grade</td>
+        </tr>
+    </tbody>
+</table>*@
+
+@model CourseStudents
+<table>
+    <thead>
+        <tr>
+            <th>Course</th>
+            <td>@Model.Crs_Name</td>
+            <th>Grades</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th rowspan="3">Students</th>
+            <td>@Model.stds[0].Std_Name</td>
+            <td>@Model.stds[0].Grade</td>
+        </tr>
+        <tr>
+            <td>@Model.stds[1].Std_Name</td>
+            <td>@Model.stds[1].Grade</td>
+        </tr>
+        <tr>
+            <td>@Model.stds[2].Std_Name</td>
+            <td>@Model.stds[2].Grade</td>
+        </tr>
+    </tbody>
+</table>
