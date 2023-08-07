@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApp_Day2.Models;
 
 namespace WebApp_Day2.Controllers
@@ -20,8 +21,21 @@ namespace WebApp_Day2.Controllers
         // Get All
         public IActionResult Index()
         {
-            List<Course> courses = context.Courses.ToList();
-
+            List<Course> courses;
+            if (HttpContext.Session.GetString("UserType") == "Instructor")
+            {
+               courses = context.Courses.ToList();
+            }
+            else
+            {
+                int? id = HttpContext.Session.GetInt32("UserID");
+                List<StudentCourse> courses1 = context.Students.Include(s=>s.StudentCourses).ThenInclude(sc=>sc.Course).Where(s=>s.ID==id).SelectMany(s=>s.StudentCourses).ToList();
+                courses = new List<Course>();
+                foreach(StudentCourse course in courses1)
+                {
+                    courses.Add(course.Course);
+                }
+            }
             return View(courses);
             //return View();                  // View Name =  ActionName(Index)        // Model =  null
             //return View(courses);           // View Name =  ActionName(Index)        // Model =  courses

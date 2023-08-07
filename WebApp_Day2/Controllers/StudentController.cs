@@ -15,8 +15,12 @@ namespace WebApp_Day2.Controllers
         // Read
         public IActionResult Index()
         {
-            List<Student> students = context.Students.Include(s => s.Department).ToList();
-            return View(students);
+            if (HttpContext.Session.GetInt32("UserID") != null)
+            {
+                List<Student> students = context.Students.Include(s => s.Department).ToList();
+                return View(students);
+            }
+            return Unauthorized();
         }
 
         public IActionResult GetById(int id)

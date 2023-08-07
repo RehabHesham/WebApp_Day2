@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    IDictionary<string, string> myData = new Dictionary<string, string>
+    {
+        {"name","ali"},
+        {"age","30"}
+    };
+}
+
+<h1>
+    Controller(Action) to Controller(Action)
+    
+</h1>
+<h4>From request to another request</h4>
+
+
+<h3>TempData</h3>
+<a asp-controller="DifferentRequest" asp-action="SetTempData" asp-all-route-data="myData">Set TempData</a>
+@*<a asp-controller="DifferentRequest" asp-action="index" asp-route-name="ali" asp-route-age="30">Set TempData</a>*@
+
+<a asp-controller="DifferentRequest" asp-action="GetTempData">Get TempData</a>
+<a asp-controller="DifferentRequest" asp-action="GetTempData2">Get TempData2</a>
+
+<h3>Session</h3>
+<a asp-controller="DifferentRequest" asp-action="SetSessionData" asp-all-route-data="myData">Set Session Data</a>
+
+<a asp-controller="DifferentRequest" asp-action="GetSessionData">Get Session Data</a>
+<a asp-controller="DifferentRequest" asp-action="DeleteSessionData">Delete Session Data</a>

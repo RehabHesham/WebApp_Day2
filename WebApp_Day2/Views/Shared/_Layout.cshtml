@@ -20,15 +20,44 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        @if (Context.Session.GetInt32("UserID") != null)
+                        {
+                            @if (Context.Session.GetString("UserType") == "Instructor")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="/student/index">Students</a>
+                                </li>
+                            }
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/course/index">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="SameRequest" asp-action="Index">Same Request</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="DifferentRequest" asp-action="Index">Different Request</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (Context.Session.GetInt32("UserID") == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Registration">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                        }else{
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/student/index">Students</a>
+                            Welcome, @Context.Session.GetString("UserName")
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/course/index">Courses</a>
+                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="SameRequest" asp-action="Index">Same Request</a>
-                        </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -48,6 +77,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

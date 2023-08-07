@@ -38,6 +38,7 @@ namespace WebApp_Day2.Controllers
                 };
                 context.Students.Add(student);
                 context.SaveChanges();
+                TempData["Saved"] = "Data have been saved";
                 return RedirectToAction("Index", "Student");
             }
             else

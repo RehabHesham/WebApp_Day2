@@ -15,8 +15,11 @@ namespace WebApp_Day2.Controllers
 
         public IActionResult Index()
         {
+            string name = HttpContext.Session.GetString("UserName");
+            int? id = HttpContext.Session.GetInt32("UserID");    
             return View();
         }
+        
 
         public IActionResult Privacy()
         {
