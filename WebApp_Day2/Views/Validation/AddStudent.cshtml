@@ -1,0 +1,48 @@
+﻿@model AddStudentVM
+@{
+    ViewData["Title"] = "AddStudent";
+}
+
+<h1>Add Student</h1>
+
+
+<form action="/Validation/AddStudent" method="post">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input class="form-control" asp-for="Name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Emai" class="form-label"></label>
+        <input class="form-control" asp-for="Emai">
+        <span class="text-danger" asp-validation-for="Emai"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label"></label>
+        <input class="form-control" asp-for="Address">
+        <span class="text-danger" asp-validation-for="Address"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Age" class="form-label"></label>
+        <input class="form-control" asp-for="Age">
+        <span class="text-danger" asp-validation-for="Age"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input class="form-control" asp-for="Password">
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input class="form-control" asp-for="ConfirmPassword">
+        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Dept_ID" class="form-label"></label>
+        <span class="text-danger" asp-validation-for="Dept_ID"></span>
+        <select class="form-select" asp-for="Dept_ID" asp-items="@Model.departments">
+            <option selected>Open this select menu</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

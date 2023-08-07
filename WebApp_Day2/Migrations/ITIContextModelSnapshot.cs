@@ -51,7 +51,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasIndex("Ins_ID");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Department", b =>
@@ -72,7 +72,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Department");
+                    b.ToTable("Department", (string)null);
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Instructor", b =>
@@ -108,7 +108,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasIndex("dept_id");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("Instructors", (string)null);
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Student", b =>
@@ -145,7 +145,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasIndex("Dept_ID");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.StudentCourse", b =>
@@ -163,7 +163,7 @@ namespace WebApp_Day2.Migrations
 
                     b.HasIndex("Crs_ID");
 
-                    b.ToTable("StudentCourses");
+                    b.ToTable("StudentCourses", (string)null);
                 });
 
             modelBuilder.Entity("WebApp_Day2.Models.Course", b =>
